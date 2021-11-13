@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #123;
+    }
+  </style>
+</head>
+<body>
+<script src="https://unpkg.com/css-doodle@0.13.1/css-doodle.min.js"></script>
+
+<css-doodle>
+  :doodle {
+    @grid: 1/100vw;
+  }
+
+  @size: 100vw;
+  
+  ::before, ::after {
+    font: 5vmin/1.3 Serif;
+    font-size: 52px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 3em;
+    height: 3em;
+    content: '.';
+    mix-blend-mode: screen;
+    animation: 44s -27s move infinite ease-in-out alternate;
+
+    color: transparent;
+    text-shadow: @m(40, (
+      @calc((@r(1) - 0.5) * 3)em
+      @calc((@r(1) - 0.5) * 3)em
+      7px
+      hsla(@r(360), 100%, 50%,.9)
+    ));
+  }
+
+  @keyframes move {
+    from {
+      transform: rotate(0deg) scale(12) translateX(-20px);
+    }
+    to {
+      transform: rotate(360deg) scale(18) translateX(20px);
+    }
+  }
+</css-doodle>
+</body>
+</html>
